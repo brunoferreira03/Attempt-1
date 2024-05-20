@@ -11,5 +11,8 @@ function increasePopulation(){
 
 var gainPopulationLoop = window.setInterval(function(){
     increasePopulation()
-    document.getElementById("villagerCount").innerHTML = villageData.population + " with " + resources.stone + " available";
 }, 5000)
+
+var matchValues = window.setInterval(function(){
+    document.getElementById("villagerCount").innerHTML = villageData.population + " with " + resources.stone + " available";
+}, 1000)

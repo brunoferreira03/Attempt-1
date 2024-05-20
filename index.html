@@ -4,12 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Advancement Expansion</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <script type="module" src="village.js"></script>
 <script type="module" src="resources.js"></script>
 <body>
-    <H4>Test</H4>
-    <p id="villagerCount"></p>
-    <p id="stoneCount"></p>
+    <!-- Tab buttons to differentiate different areas of the page -->
+    <button class="tablink" onclick="openPage('Village', this)">Village</button>
+    <button id="defaultOpen" class="tablink" onclick="openPage('News', this)">Home</button>
+    
+    <!-- Village tab with village information 
+         Insert here all the village interaction buttons -->
+    <div id="Village" class="tabcontent">
+        <H4>Test</H4>
+        <p id="villagerCount"></p>
+        <p id="stoneCount"></p>
+    </div>
+
+    <!-- Resources tab to keep track of resources
+         Insert here all information that is resource related -->
+    <div id="News" class="tabcontent">
+        <h3>News</h3>
+    </div>
+    
+    <!-- Jobs tab
+    <div id="Jobs" class="tabcontent">
+        <h3> Jobs </h3>
+    </div>
+    -->
 </body>
 </html>
+
+<script>
+    function openPage(pageName, elmnt){
+        //Hide all elements with class=tabcontent" by default
+        var i, tabcontent,tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for(i = 0; i<tabcontent.length;i++){
+            tabcontent[i].style.display="none";
+        }
+
+        //Remove the background color of all tablinks/buttons
+        tablinks = document.getElementsByClassName("tablink");
+        for(i = 0; i<tablinks.length; i++){
+            tablinks[i].style.backgroundColor = "";
+        }
+
+        //Show the specific tab content
+        document.getElementById(pageName).style.display = "block";
+    }
+
+    //Get the elemtn with the id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+</script>
