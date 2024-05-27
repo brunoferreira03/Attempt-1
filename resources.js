@@ -1,14 +1,37 @@
 var resourceData ={
-    stone: 7,
+    food: 20,
+    wood: 6,
+    stone: 8,
+
+}
+
+var resourceRates = {
+    foodPerTick: 0,
+    woodPerTick: 0,
+    stonePerTick: 0,
+}
+
+function gainFood(){
+    resourceData.food += resourceRates.foodPerTick;
+    document.getElementById("foodCount").innerHTML = resourceData.food + "Food";
+}
+
+function gainWood(){
+    resourceData.wood += resourceRates.woodPerTick;
+    document.getElementById("woodCount").innerHTML = resourceData.wood + "Wood";
 }
 
 function gainStone(){
-    resourceData.stone += 1;
+    resourceData.stone += resourceRates.stonePerTick;
+    document.getElementById("stoneCount").innerHTML = resourceData.food + "Stone";
 }
 
-var gainStoneLoop = window.setInterval(function(){
+var gainResourceLoop = window.setInterval(function(){
+    gainFood()
+    gainWood()
     gainStone()
-    document.getElementById("stoneCount").innerHTML = resourceData.stone;
+
 }, 1000)
+
 
 export {resourceData}
