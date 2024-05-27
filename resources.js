@@ -13,23 +13,26 @@ var resourceRates = {
 
 function gainFood(){
     resourceData.food += resourceRates.foodPerTick;
-    document.getElementById("foodCount").innerHTML = resourceData.food + "Food";
+    
 }
 
 function gainWood(){
     resourceData.wood += resourceRates.woodPerTick;
-    document.getElementById("woodCount").innerHTML = resourceData.wood + "Wood";
+    
 }
 
 function gainStone(){
     resourceData.stone += resourceRates.stonePerTick;
-    document.getElementById("stoneCount").innerHTML = resourceData.food + "Stone";
+    
 }
 
 var gainResourceLoop = window.setInterval(function(){
     gainFood()
+    document.getElementById("foodCount").innerHTML = resourceData.food + " Food";
     gainWood()
+    document.getElementById("woodCount").innerHTML = resourceData.wood + " Wood";
     gainStone()
+    document.getElementById("stoneCount").innerHTML = resourceData.food + " Stone";
 
 }, 1000)
 
